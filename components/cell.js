@@ -9,7 +9,7 @@ class Cell extends Component {
   }
 
   render() {
-    const {data, width, height, flex, style, textStyle, ...props} = this.props;
+    const {data, width, height, flex, style, textStyle, disableHorizontalBorder, disableVerticalBorder, ...props} = this.props;
     const textDom = React.isValidElement(data) ? data : (
         <Text style={[textStyle, styles.text]} {...props}>{data}</Text>
       );
@@ -28,8 +28,8 @@ class Cell extends Component {
     return (
       <View style={[
         {
-          borderTopWidth: borderWidth,
-          borderRightWidth: borderWidth,
+          borderTopWidth: disableHorizontalBorder ? 0 : borderWidth,
+          borderRightWidth: disableVerticalBorder ? 0 : borderWidth,
           borderColor: borderColor,
         },
         styles.cell,

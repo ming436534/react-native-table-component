@@ -37,8 +37,8 @@ class Table extends Component {
         this.props.style,
         {
           borderLeftWidth: borderWidth,
-          borderBottomWidth: borderWidth,
-          borderColor: borderColor
+          borderBottomWidth: this.props.disableHorizontalBorder ? 0 : borderWidth,
+          borderColor: this.props.disableVerticalBorder ? 0 : borderColor
         }
       ]}>
         {this._renderChildren(this.props)}
